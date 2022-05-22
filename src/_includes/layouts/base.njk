@@ -1,0 +1,39 @@
+---
+title: . blg
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/components/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/containers/index.css' | url }}">
+  </head>
+  <body>
+    <script src="/js/theme-toggler.js" type="module"></script>
+    <header>
+      <nav class="nav">
+        <a class="nav-logo" href="{{ '/' | url }}">. blg</a>
+        <ul class="nav-menu">
+          {%- for entry in collections.all | eleventyNavigation %}
+            <li class="nav-menu__item{% if entry.url == page.url %} nav-menu__item--active{% endif %}">
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+            </li>
+          {%- endfor %}
+
+          <li class="nav-menu__button">
+            <button id="theme-toggler" class="theme-toggler"/>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      {{ content | safe }}
+    </main>
+    <footer></footer>
+  </body>
+</html>

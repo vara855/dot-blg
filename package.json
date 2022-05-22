@@ -1,0 +1,27 @@
+{
+  "name": "dot-blg",
+  "version": "1.0.0",
+  "description": ". blg",
+  "main": "index.js",
+  "scripts": {
+    "start": "rm -rf ./_site && npx @11ty/eleventy --watch --serve --port 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vara855/dot-blg.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "vara855",
+  "license": "./LICENSE",
+  "bugs": {
+    "url": "https://github.com/vara855/dot-blg/issues"
+  },
+  "homepage": "https://github.com/vara855/dot-blg#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-navigation": "^0.3.3"
+  }
+}

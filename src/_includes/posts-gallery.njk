@@ -1,0 +1,19 @@
+<div class="cards-container">
+  {% for post in postsList %}
+    <div class="card">
+      <div class="card-header">
+        <span class="card__title">
+          <a href="{{ post.url | url }}">{{post.data.title}}</a>
+        </span>
+        <div class="tags-container">
+          {% for tag in post.data.tags %}
+            <span class="post-tag">{{tag}}</span>
+          {% endfor %}
+        </div>
+        </div>
+      <div class="card__description">
+        {{ post.data.description }}
+      </div>
+    </div>
+  {% endfor %}
+</div>

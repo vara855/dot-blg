@@ -1,0 +1,48 @@
+
+:root {
+  /* Colors */
+  --dark-gray: #141415;
+  --gray: #333333;
+  --light-gray: #CBCBCD;
+  --smoke-green: #667A73;
+  --smoke-dark-green: #335246;
+  --dark-green: #002918;
+  --cadmium-green: #046231;
+  --darthmius-green: #05773A;
+  --emerald-green: #3BBF78;
+  --white: white;
+  --black: #020202;
+
+  /* Light Theme */
+  --link-color: var(--darthmius-green);
+  --header-color: var(--light-gray);
+  --header-font-color: var(--dark-gray);
+  --main-font-color: var(--black);
+  --main-background-color: var(--white);
+  --accent-color: var(--darthmius-green);
+  --card-bg: var(--emerald-green);
+
+  --theme-icon: url('/img/dark.svg');
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, system-ui, sans-serif;
+  color: var(--main-font-color);
+  background-color: var(--main-background-color);
+  height: 100%;
+}
+
+.dark {
+  --link-color: var(--darthmius-green);
+  --header-color: var(--dark-gray);
+  --header-font-color: var(--white);
+  --main-font-color: var(--light-gray);
+  --main-background-color: var(--gray);
+  --accent-color: var(--cadmium-green);
+  --card-bg: var(--dark-green);
+
+  --theme-icon: url('/img/light.svg');
+}

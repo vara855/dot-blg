@@ -1,0 +1,16 @@
+.tags-container {
+  display: flex;
+  gap: 4px;
+}
+
+.post-tag {
+  font-size: 0.8rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: background-color .2s ease;
+}
+
+.post-tag:hover {
+  background-color: var(--accent-color);
+}

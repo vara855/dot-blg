@@ -1,0 +1,16 @@
+.theme-toggler {
+  background-image: var(--theme-icon);
+  filter: invert(1);
+  background-size: 28px;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+
+  border-radius: 50%;
+
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
