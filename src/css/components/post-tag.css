@@ -9,6 +9,9 @@
   border: 1px solid;
   border-radius: 4px;
   transition: background-color .2s ease;
+
+  text-decoration: none;
+  color: inherit;
 }
 
 .post-tag:hover {

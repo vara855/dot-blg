@@ -7,7 +7,10 @@
         </span>
         <div class="tags-container">
           {% for tag in post.data.tags %}
-            <span class="post-tag">{{tag}}</span>
+          {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag">
+              <span>{{tag}}</span>
+            </a>
           {% endfor %}
         </div>
         </div>

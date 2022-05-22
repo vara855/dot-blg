@@ -1,3 +1,4 @@
+@import url('./common/fonts.css');
 
 :root {
   /* Colors */
@@ -10,6 +11,7 @@
   --cadmium-green: #046231;
   --darthmius-green: #05773A;
   --emerald-green: #3BBF78;
+  --grey-white: #E0E0E1;
   --white: white;
   --black: #020202;
 
@@ -29,7 +31,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, system-ui, sans-serif;
+  font-family: 'Roboto Flex', -apple-system, system-ui, sans-serif;
   color: var(--main-font-color);
   background-color: var(--main-background-color);
   height: 100%;
@@ -39,7 +41,7 @@ body {
   --link-color: var(--darthmius-green);
   --header-color: var(--dark-gray);
   --header-font-color: var(--white);
-  --main-font-color: var(--light-gray);
+  --main-font-color: var(--grey-white);
   --main-background-color: var(--gray);
   --accent-color: var(--cadmium-green);
   --card-bg: var(--dark-green);

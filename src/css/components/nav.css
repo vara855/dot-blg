@@ -74,6 +74,7 @@
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
+  font-variation-settings: "slnt" 0, "wdth" 125, "GRAD" 0, "XTRA" 400, "YOPQ" 79, "YTAS" 750, "YTDE" -203, "YTFI" 738, "YTLC" 514, "YTUC" 712;
 }
 
 .nav-logo:hover {

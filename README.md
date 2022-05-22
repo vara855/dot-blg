@@ -9,5 +9,5 @@ TODO:
   - [ ] Post card style.
   - [ ] ...
 - Posts
-  - [ ] On tag click -> open all posts with a such tag.
+  - [x] On tag click -> open all posts with a such tag.
   - [ ] Add code highlighter.
