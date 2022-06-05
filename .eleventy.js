@@ -1,11 +1,15 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-
+const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/js");
   eleventyConfig.addPassthroughCopy("./src/img");
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+  eleventyConfig.addFilter("formatDate", (value) =>
+    DateTime.fromJSDate(new Date(value)).toLocaleString(DateTime.DATETIME_SHORT)
+  );
 
   return {
     // Control which files Eleventy will process
