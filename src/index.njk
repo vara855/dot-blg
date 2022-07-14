@@ -2,6 +2,6 @@
 layout: layouts/home.njk
 title: . blg
 ---
-{% set postsList = collections.posts %}
+{% set postsList = collections.posts | sortByDate %}
 
 {% include "posts-gallery.njk" %}

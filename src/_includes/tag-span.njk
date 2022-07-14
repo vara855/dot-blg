@@ -1,0 +1,5 @@
+{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  <a href="{{ tagUrl | url }}" class="post-tag">
+    <span>{{tag}}</span>
+  </a>
+{% endfor %}

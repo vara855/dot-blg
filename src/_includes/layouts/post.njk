@@ -2,9 +2,36 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
 
-POST LAYOUT 
+<div class="post">
+  <div class="post-body">
+    <div class="post-content">
+      <div class="post__subtitle">
+        <div class="tags-container">
+          {% for tag in tags | filterTags %}
+          {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+            <a href="{{ tagUrl | url }}" class="post-tag">
+              <span>{{tag}}</span>
+            </a>
+          {% endfor %}
+        </div>
+        <span class="date-chip">🗓 {{date | formatDate }}</span>
+      </div>
 
-{{ content | safe }}
+      <h1>{{ title }}</h1>
+      {{ content | safe }}
+
+    </div>
+
+    <hr class="post__divider" />
+
+    <div class="post__footer">
+      <h2>See also</h2>  
+      {% set postsList = collections[ tags[0] ] %}
+      {% include "posts-gallery.njk" %}
+    </div>
+  </div>
+</div>
+
+
 

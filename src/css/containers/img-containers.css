@@ -1,0 +1,16 @@
+.img-center {
+  display: flex;
+  justify-content: center;
+}
+
+.img-center > img {
+  width: 100%;
+}
+
+.img-center__70 > img {
+  width: 70%;
+}
+
+.img-center__50 > img {
+  width: 50%;
+}

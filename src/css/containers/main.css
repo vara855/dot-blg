@@ -1,4 +1,12 @@
 
 .main {
-  margin: 2rem;
+  margin: 1rem 2rem 0px 2rem;
 }
+
+.main a {
+  color: var(--link-color);
+}
+
+/* .main a:visited { */
+  /* color: var(--link-visited-color); */
+/* } */

@@ -8,8 +8,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   eleventyConfig.addFilter("formatDate", (value) =>
-    DateTime.fromJSDate(new Date(value)).toLocaleString(DateTime.DATETIME_SHORT)
+    DateTime.fromJSDate(new Date(value)).toLocaleString(DateTime.DATE_FULL)
   );
+
+  eleventyConfig.addFilter("sortByDate", (value) => {
+    return value.sort((a, b) => new Date(b.date) - new Date(a.date));
+  });
+  eleventyConfig.addFilter("filterTags", (value) =>
+    value.filter((it) => it !== "posts")
+  );
+
+  eleventyConfig.addFilter("collectTags", (value) => {
+    return value
+      .map((it) => it.data.tag)
+      .flat()
+      .filter((it) => it);
+  });
+  eleventyConfig.addFilter("stringify", (value) => JSON.stringify(value));
 
   return {
     // Control which files Eleventy will process
