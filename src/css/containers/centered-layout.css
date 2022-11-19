@@ -1,0 +1,22 @@
+
+.centered-layout {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.centered-layout__item {
+  flex: 0 1 50%;
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+@media screen 
+and (min-device-width: 200px)
+and (max-device-width: 667px) {
+
+  .centered-layout__item {
+    flex: 0 1 90%;
+  }
+}

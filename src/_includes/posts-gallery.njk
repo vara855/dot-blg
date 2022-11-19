@@ -1,8 +1,19 @@
 <div class="cards-container">
   {% for post in postsList %}
+    {% set timeToRead = post.templateContent |  ttr %}
     <div class="card">
       <div class="card-header">
-        <span class="card__post-date">{{ post.data.date | formatDate }}</span>
+        <div class="card-meta">
+          <span class="card__post-date">{{ post.data.date | formatDate }}</span>
+          <span 
+            class="date-chip ttr-chip" 
+            title="Time to read: {{ timeToRead }}" 
+            aria="Time to read: {{ timeToRead }}"
+            >
+              ⏱ {{ timeToRead }}
+          </span>
+        </div>
+
         <span class="card__title">
           <a href="{{ post.url | url }}">{{post.data.title}}</a>
         </span>

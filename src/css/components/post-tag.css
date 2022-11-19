@@ -1,6 +1,7 @@
 .tags-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 4px;
 }
 
@@ -11,6 +12,7 @@
   border: 2px solid var(--main-background-color);
   border-radius: 4px;
   transition: all .2s ease;
+  height: 16px;
 
   text-decoration: none;
   background-color: var(--main-background-color);

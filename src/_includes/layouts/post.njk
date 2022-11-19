@@ -3,9 +3,10 @@ layout: layouts/base.njk
 templateClass: tmpl-post
 ---
 
+
 <div class="post">
   <div class="post-body">
-    <div class="post-content">
+    <article class="post-content">
       <div class="post__subtitle">
         <div class="tags-container">
           {% for tag in tags | filterTags %}
@@ -15,15 +16,47 @@ templateClass: tmpl-post
             </a>
           {% endfor %}
         </div>
-        <span class="date-chip">🗓 {{date | formatDate }}</span>
+        <div class="chips-container">
+          <span 
+            class="date-chip ttr-chip" 
+            title="Time to read: {{ content | ttr }}" 
+            aria="Time to read: {{ content | ttr }}"
+            >
+            ⏱ {{ content | ttr }}
+          </span>
+          <span
+            role="time" 
+            class="date-chip"
+            title="Created {{date | formatDate }}"
+            aria="Created {{date | formatDate }}"
+            >
+            🗓 {{date | formatDate }}
+            </span>
+        </div>
       </div>
 
       <h1>{{ title }}</h1>
       {{ content | safe }}
 
-    </div>
+    </article>
 
     <hr class="post__divider" />
+
+    {% set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+    {% set nextPost = collections.posts | getNextCollectionItem(page) %}
+
+    <div class="prev-next">
+      <div>
+        {% if previousPost %}
+          <a aria="Previous post" class="prev-next__control" href="{{ previousPost.url }}">⬅️ {{ previousPost.data.title }}</a>
+        {% endif %}
+      </div>
+      <div>
+        {% if nextPost %}
+          <a aria-label="Next post" class="prev-next__control" href="{{ nextPost.url }}">{{ nextPost.data.title }} ➡️</a>
+        {% endif %}
+      </div>
+    </div>
 
     <div class="post__footer">
       <h2>See also</h2>  

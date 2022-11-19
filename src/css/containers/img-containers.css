@@ -3,14 +3,14 @@
   justify-content: center;
 }
 
-.img-center > img {
+.img-center > picture {
   width: 100%;
 }
 
-.img-center__70 > img {
+.img-center__70 > picture {
   width: 70%;
 }
 
-.img-center__50 > img {
+.img-center__50 > picture {
   width: 50%;
 }

@@ -10,10 +10,23 @@
   color: var(--post-title);
 }
 
-.post-content > h2, h3, h4, h5, h6 {
+.post-content h2, h3, h4, h5, h6 {
+  position: relative;
   color: var(--post-sec-title);
 }
-.post-content > img {
+
+.screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.post-content > img, picture {
   width: 100%;
 }
 
@@ -24,6 +37,10 @@
   padding-bottom: 2rem;
 }
 
+.post-body pre {
+  max-width: 50vw;
+}
+
 .post__subtitle {
   display: flex;
   flex-wrap: nowrap;
@@ -31,8 +48,34 @@
   align-items: center;
 }
 
+.chips-container {
+  gap: .5em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .post__divider {
   width: 100%;
+}
+
+.prev-next {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-next__control {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.prev-next__control > a {
+  text-decoration: none;
+}
+
+.prev-next__control:hover {
+  text-decoration: underline;
+  text-underline-offset: 10%;
 }
 
 .post__footer {
@@ -44,5 +87,33 @@ and (max-device-width: 667px) {
 
   .post-body {
     flex: 0 1 90%;
+  }
+
+  .post-body pre {
+    max-width: 80vw;
+  }
+
+}
+
+@media screen and (min-width: 700px) {
+  .header-anchor {
+    left: -0.9em;
+    position: absolute;
+    width: 0.9em;
+  }
+}
+
+@media screen and (min-width: 700px) and (hover: hover) {
+
+  .header-anchor__symbol {
+    visibility: hidden;
+  }
+  h2:hover .header-anchor__symbol, 
+  h3:hover .header-anchor__symbol, 
+  h4:hover .header-anchor__symbol, 
+  h5:hover .header-anchor__symbol, 
+  h6:hover .header-anchor__symbol, 
+  .header-anchor:focus .header-anchor__symbol {
+    visibility: visible;
   }
 }

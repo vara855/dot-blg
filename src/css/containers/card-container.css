@@ -25,6 +25,12 @@
   flex-direction: column;
 }
 
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card__title a {
   font-size: 1.5rem;
   font-weight: 600;

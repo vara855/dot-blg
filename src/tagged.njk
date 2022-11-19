@@ -18,6 +18,23 @@ permalink: /tags/{{ tag | slug }}/
 <h1>Tagged “{{ tag }}”</h1>
 
 {% set postsList = collections[ tag ] %}
-{% include "posts-gallery.njk" %}
+{% set tagsList = collections.all | collectTags %}
 
-<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+
+<div class="tagged-container">
+  {% include "posts-gallery.njk" %}
+
+  <div class="card">
+
+    <div class="tags-container">
+      <b>All tags: </b>
+      {% for tag in tagsList | filterTags %}
+      {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+        <a href="{{ tagUrl | url }}" class="post-tag">
+          <span>{{tag}}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
