@@ -31,6 +31,10 @@
   align-items: center;
 }
 
+.card__title {
+  margin-block: .3rem;
+}
+
 .card__title a {
   font-size: 1.5rem;
   font-weight: 600;

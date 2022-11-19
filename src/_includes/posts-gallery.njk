@@ -14,9 +14,9 @@
           </span>
         </div>
 
-        <span class="card__title">
+        <h3 class="card__title">
           <a href="{{ post.url | url }}">{{post.data.title}}</a>
-        </span>
+        </h3>
         <div class="tags-container">
           {% for tag in post.data.tags | filterTags %}
           {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}

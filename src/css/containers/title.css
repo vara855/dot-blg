@@ -1,0 +1,26 @@
+.title-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    isolation: isolate;
+}
+
+.title-content > * {
+    z-index: 2;
+}
+
+.title-content::before {
+    transition: all 3s ease;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30vh;
+    z-index: -5;
+    background: var(--title-content-gradient);
+}
+
+.title-content__heading {
+
+}

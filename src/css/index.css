@@ -33,6 +33,7 @@
   --code-bg: var(--darthmius-green);
   --post-title: var(--accent-color);
   --post-sec-title: var(--main-font-color);
+  --title-content-gradient: linear-gradient(var(--header-color), #6ee6a5, var(--main-background-color));
 
   --theme-icon: url('/icons/dark.svg');
 
@@ -46,6 +47,7 @@ body {
   margin: 0;
   font-family: 'Roboto Flex', -apple-system, system-ui, sans-serif;
   font-weight: 400;
+  font-size: 18px;
   color: var(--main-font-color);
   background-color: var(--main-background-color);
   height: 100%;
@@ -68,6 +70,7 @@ body {
   --chip-cl: var(--emerald-green);
   --post-title: var(--emerald-green);
   --post-sec-title: var(--white);
+  --title-content-gradient: linear-gradient(var(--header-color), var(--card-bg), #0f311f, var(--main-background-color));
 
   --theme-icon: url('/icons/light.svg');
 
@@ -75,7 +78,6 @@ body {
 
 .wrapper {
   display: grid;
-  grid-gap: 1rem;
   min-height: 100vh;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto 1fr;
@@ -95,11 +97,22 @@ footer {
   display: grid;
   grid-area: footer;
   grid-template-areas: ". footer-content .";
-  background: var(--footer-bg);
+  isolation: isolate;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(360deg, var(--footer-bg), transparent);
+  height: 140%;
+  z-index: -1;
+  width: 100%;
 }
 
 .footer-content {
   grid-area: footer-content;
+  text-align: center;
   padding: 1rem 0;
 }
 a {

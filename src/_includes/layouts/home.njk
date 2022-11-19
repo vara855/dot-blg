@@ -2,7 +2,9 @@
 layout: layouts/base.njk
 templateClass: tmpl-home
 ---
-
+<div class="title-content">
+    <h1 class="centered-layout__item">{{ heading }}</h1>
+</div>
 <div class="centered-layout">
   <div class="centered-layout__item">
     {{ content | safe }}

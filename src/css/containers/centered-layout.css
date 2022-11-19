@@ -2,6 +2,8 @@
 .centered-layout {
   display: flex; 
   align-items: center;
+  isolation: isolate;
+  margin-block: 1rem;
   justify-content: center;
 }
 
