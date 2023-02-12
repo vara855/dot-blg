@@ -45,7 +45,6 @@ function imageShortcode(
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("cssmin", (code) => {
-    console.log("code", code);
     return new CleanCSS({ inline: ["local"] }).minify(code).styles;
   });
 
