@@ -1,4 +1,5 @@
-@import url('./common/fonts.css');
+@import url('src/_includes/css/components/index.css');
+@import url('src/_includes/css/containers/index.css');
 
 :root {
   /* Colors */
@@ -34,18 +35,21 @@
   --post-title: var(--accent-color);
   --post-sec-title: var(--main-font-color);
   --title-content-gradient: linear-gradient(var(--header-color), #6ee6a5, var(--main-background-color));
+  --post-bg: rgba(236, 236, 236, 0.4);
 
   --theme-icon: url('/icons/dark.svg');
 
   /* Shadows */
   --main-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --light-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 12px;
 }
+
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto Flex', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: var(--main-font-color);
@@ -71,9 +75,14 @@ body {
   --post-title: var(--emerald-green);
   --post-sec-title: var(--white);
   --title-content-gradient: linear-gradient(var(--header-color), var(--card-bg), #0f311f, var(--main-background-color));
+  --post-bg: rgba(31, 31, 31, 0.4);
 
   --theme-icon: url('/icons/light.svg');
 
+}
+
+h1 {
+  font-size: 2.2em;
 }
 
 .wrapper {
@@ -83,11 +92,14 @@ body {
   grid-template-rows: auto 1fr;
   grid-template-areas:
     "header header header"
-    ". main ."
+    "main main main"
     "footer footer footer";
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   grid-area: header;
 }
 main {
@@ -99,15 +111,6 @@ footer {
   grid-template-areas: ". footer-content .";
   isolation: isolate;
   position: relative;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  background: linear-gradient(360deg, var(--footer-bg), transparent);
-  height: 140%;
-  z-index: -1;
-  width: 100%;
 }
 
 .footer-content {
@@ -129,9 +132,10 @@ pre code {
   background-color: inherit;
   color: inherit;
 }
-code {
-  font-family: 'JetBrains Mono';
+code, code > .token {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
 }
+
 
 code {
   background: var(--code-bg);

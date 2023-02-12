@@ -67,8 +67,9 @@
 }
 
 .nav-logo {
-  padding: 15px 20px;
+  padding: 1rem 1.5rem;
   height: 100%;
+  text-align: center;
   display: block;
   color: var(--header-font-color);
   font-size: 18px;

@@ -15,8 +15,8 @@
 }
 
 @media screen 
-and (min-device-width: 200px)
-and (max-device-width: 667px) {
+and (min-width: 200px)
+and (max-width: 770px) {
 
   .centered-layout__item {
     flex: 0 1 90%;

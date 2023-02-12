@@ -7,15 +7,26 @@ title: . blg
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="#035a2d" name="theme-color"/>
+    <meta content="{{ title }}" name="description"/>
+    <link rel="canonical" href="https://dot-blog.dev"/>
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/components/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/containers/index.css' | url }}">
-    <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+     <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.css">
+
+    {% set css %}
+      {% include "css/index.css" %}
+    {% endset %}
+
+    <style>{{ css | cssmin | safe}}</style>
   </head>
   <body>
     <script src="/js/theme-toggler.js" type="module"></script>
+    <script src="/js/toc-interactivity.js" type="module"></script>
     <div class="wrapper">
       <header>
         <nav class="nav">

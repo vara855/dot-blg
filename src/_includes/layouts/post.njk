@@ -3,7 +3,14 @@ layout: layouts/base.njk
 templateClass: tmpl-post
 ---
 
+<div class="title-content"></div>
 
+<div class="post-toc__mobile">
+  <details>
+    <summary class="post-toc__summary">На этой странице</summary>
+    {{ content | toc | safe }}
+  </details>
+</div>
 <div class="post">
   <div class="post-body">
     <article class="post-content">
@@ -64,6 +71,10 @@ templateClass: tmpl-post
       {% include "posts-gallery.njk" %}
     </div>
   </div>
+  <aside class="post-toc">
+    <h3>На этой странице</h3>
+    {{ content | toc | safe }}
+  </aside>
 </div>
 
 

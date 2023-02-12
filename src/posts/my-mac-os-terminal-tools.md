@@ -13,7 +13,7 @@ layout: layouts/post.njk
 
 ## TLDR;
 
-Список всего, что установленно через Brew. `brew ls`
+Список всего, что установлено через Brew. `brew ls`
 
 {% image "mac-os-terminal/brew-ls.png", "'brew ls' command output" %}
 

@@ -7,6 +7,8 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const renderPermalink = require("./renderPermalink.js");
 const slugify = require("slugify");
+const pluginTOC = require("eleventy-plugin-toc");
+const CleanCSS = require("clean-css");
 
 function imageShortcode(
   src,
@@ -42,6 +44,11 @@ function imageShortcode(
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("cssmin", (code) => {
+    console.log("code", code);
+    return new CleanCSS({ inline: ["local"] }).minify(code).styles;
+  });
+
   eleventyConfig.setLibrary(
     "md",
     markdownIt({
@@ -54,14 +61,17 @@ module.exports = function (eleventyConfig) {
       renderPermalink,
     })
   );
-  eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/js");
   eleventyConfig.addPassthroughCopy("./src/icons");
+  eleventyConfig.addPassthroughCopy("./src/favicon.ico");
 
   eleventyConfig.addShortcode("image", imageShortcode);
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginTOC);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init: ({ Prism }) => {},
+  });
 
   eleventyConfig.addFilter("ttr", (value) => {
     const words = value.trim().split(/\s+/).length;

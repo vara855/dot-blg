@@ -12,7 +12,8 @@
 }
 
 .title-content::before {
-    transition: all 3s ease;
+    transition: background .3s ease;
+    -webkit-transition: none;
     content: '';
     position: absolute;
     width: 100%;

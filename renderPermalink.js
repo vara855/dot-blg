@@ -23,8 +23,7 @@ const renderPermalink = (slug, opts, state, idx) => {
     }),
     Object.assign(new state.Token("html_block", "", 0), {
       // Edit starts here:
-      content: `<span aria-hidden="true" class="header-anchor__symbol">#</span>
-      <span class="screen-reader-only">Direct link to this section</span>`,
+      content: `<span aria-hidden="true" class="header-anchor__symbol">#</span>`,
       // Edit ends
     }),
     new state.Token("link_close", "a", -1),
