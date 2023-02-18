@@ -80,12 +80,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("formatDate", (value) =>
     DateTime.fromJSDate(new Date(value)).toLocaleString(DateTime.DATE_FULL)
   );
+  eleventyConfig.addFilter("date", (value) =>
+    DateTime.fromJSDate(new Date(value)).toFormat("yyyy-MM-dd")
+  );
 
   eleventyConfig.addFilter("sortByDate", (value) => {
     return value.sort((a, b) => new Date(b.date) - new Date(a.date));
   });
   eleventyConfig.addFilter("filterTags", (value) =>
     value.filter((it) => it !== "posts")
+  );
+
+  eleventyConfig.addFilter("onlyWithDate", (value) =>
+    value.filter((it) => it.date)
   );
 
   eleventyConfig.addFilter("collectTags", (value) => {
