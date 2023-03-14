@@ -19,7 +19,7 @@
   text-overflow: ellipsis;
   transition: all 0.3s ease-in-out;
   position: sticky;
-  top: 58px;
+  top: 57px;
   margin-right: 0.6rem;
   padding-left: 0.8rem;
 }
@@ -27,8 +27,8 @@
 .post-toc__mobile {
   position: sticky;
   max-width: 100%;
-  top: 58px;
-  padding: .6rem 2rem;
+  top: 57px;
+  padding: 0.6rem 2rem;
   height: auto;
   max-height: 20rem;
   overflow-y: auto;
@@ -42,9 +42,9 @@
   cursor: pointer;
   list-style: none;
   width: max-content;
-  padding: .2rem .6rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  font-size: .8rem;
+  font-size: 0.8rem;
   border: 2px solid var(--accent-color);
 }
 .post-toc__mobile details summary:hover {
@@ -63,7 +63,7 @@
   padding: 0.3rem 0.4rem;
   list-style: none;
   font-size: 0.9rem;
-  word-break: break-all;
+  word-break: normal;
   overflow: hidden;
 }
 
@@ -168,22 +168,23 @@ picture {
 
 .prev-next {
   display: flex;
+  gap: 0.8rem;
+  font-size: 1.2em;
   justify-content: space-between;
 }
 
-.prev-next__control {
-  font-size: 1.5em;
+.prev-next__item {
   font-weight: 600;
+  border: 1px solid lightgray;
+  box-shadow: var(--light-box-shadow);
+  padding: 1em;
   text-decoration: none;
+  border-radius: 8px;
 }
-
-.prev-next__control > a {
-  text-decoration: none;
-}
-
-.prev-next__control:hover {
-  text-decoration: underline;
-  text-underline-offset: 10%;
+.prev-next__item > :first-child {
+  color: gray;
+  font-weight: 500;
+  opacity: 0.8;
 }
 
 .post__footer {

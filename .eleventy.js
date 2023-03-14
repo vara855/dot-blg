@@ -19,9 +19,12 @@ function imageShortcode(
   const srcPath = path.parse(src);
   let options = {
     widths: [600, 900, 1500],
-    formats: ["webp", "jpeg"],
+    formats: ["webp", "jpeg", "gif"],
     urlPath: `/img/${srcPath.dir}`,
     outputDir: `./_site/img/${srcPath.dir}`,
+    sharpOptions: {
+      animated: true,
+    },
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
@@ -54,11 +57,22 @@ module.exports = function (eleventyConfig) {
       breaks: true,
       html: true,
       linkify: true,
-    }).use(markdownItAnchor, {
-      permalink: true,
-      slugify: slugify,
-      renderPermalink,
+      highlight: true,
+      typographer: true,
     })
+      .use(markdownItAnchor, {
+        permalink: true,
+        slugify: slugify,
+        renderPermalink,
+      })
+      .use((md) => {
+        const originRender = md.renderer.rules.fence;
+        md.renderer.rules.fence = (...args) => {
+          const result = originRender(...args);
+          return `<div class="code-block-container">${result}</div>`;
+        };
+        return md;
+      })
   );
   eleventyConfig.addPassthroughCopy("./src/js");
   eleventyConfig.addPassthroughCopy("./src/icons");
@@ -69,6 +83,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC);
   eleventyConfig.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: true,
     init: ({ Prism }) => {},
   });
 

@@ -53,16 +53,22 @@ templateClass: tmpl-post
     {% set nextPost = collections.posts | getNextCollectionItem(page) %}
 
     <div class="prev-next">
-      <div>
-        {% if previousPost %}
-          <a aria="Previous post" class="prev-next__control" href="{{ previousPost.url }}">⬅️ {{ previousPost.data.title }}</a>
-        {% endif %}
-      </div>
-      <div>
-        {% if nextPost %}
-          <a aria-label="Next post" class="prev-next__control" href="{{ nextPost.url }}">{{ nextPost.data.title }} ➡️</a>
-        {% endif %}
-      </div>
+      {% if previousPost %}
+        <a aria="Previous post" class="prev-next__item" href="{{ previousPost.url }}">
+          <span>Next: </span>
+          <span>
+            {{ previousPost.data.title }}
+          </span>
+        </a>
+      {% endif %}
+      {% if nextPost %}
+        <a aria="Next post" class="prev-next__item" href="{{ nextPost.url }}">
+          <span>Previous: </span>
+          <span>
+            {{ nextPost.data.title }}
+          </span>
+        </a>
+      {% endif %}
     </div>
 
     <div class="post__footer">

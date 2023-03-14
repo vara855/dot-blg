@@ -1,17 +1,17 @@
-@import url('src/_includes/css/components/index.css');
-@import url('src/_includes/css/containers/index.css');
+@import url("src/_includes/css/components/index.css");
+@import url("src/_includes/css/containers/index.css");
 
 :root {
   /* Colors */
   --dark-gray: #141415;
   --gray: #333333;
-  --light-gray: #CBCBCD;
-  --smoke-green: #667A73;
+  --light-gray: #cbcbcd;
+  --smoke-green: #667a73;
   --smoke-dark-green: #335246;
   --dark-green: #002918;
   --cadmium-green: #046231;
-  --darthmius-green: #05773A;
-  --emerald-green: #3BBF78;
+  --darthmius-green: #05773a;
+  --emerald-green: #3bbf78;
   --grey-white: #efefef;
   --white: white;
   --black: #020202;
@@ -34,22 +34,25 @@
   --code-bg: var(--darthmius-green);
   --post-title: var(--accent-color);
   --post-sec-title: var(--main-font-color);
-  --title-content-gradient: linear-gradient(var(--header-color), #6ee6a5, var(--main-background-color));
+  --title-content-gradient: linear-gradient(
+    var(--header-color),
+    #6ee6a5,
+    var(--main-background-color)
+  );
   --post-bg: rgba(236, 236, 236, 0.4);
 
-  --theme-icon: url('/icons/dark.svg');
+  --theme-icon: url("/icons/dark.svg");
 
   /* Shadows */
   --main-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --light-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 12px;
 }
 
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: var(--main-font-color);
@@ -74,11 +77,15 @@ body {
   --chip-cl: var(--emerald-green);
   --post-title: var(--emerald-green);
   --post-sec-title: var(--white);
-  --title-content-gradient: linear-gradient(var(--header-color), var(--card-bg), #0f311f, var(--main-background-color));
+  --title-content-gradient: linear-gradient(
+    var(--header-color),
+    var(--card-bg),
+    #0f311f,
+    var(--main-background-color)
+  );
   --post-bg: rgba(31, 31, 31, 0.4);
 
-  --theme-icon: url('/icons/light.svg');
-
+  --theme-icon: url("/icons/light.svg");
 }
 
 h1 {
@@ -126,21 +133,24 @@ a:hover {
   filter: contrast(1.2);
 }
 
+ul > li {
+  margin-bottom: 0.5rem;
+}
 /* Code styles */
 
 pre code {
   background-color: inherit;
   color: inherit;
 }
-code, code > .token {
-  font-family: 'JetBrains Mono', 'Consolas', monospace;
+code,
+code > .token {
+  font-family: "JetBrains Mono", "Consolas", monospace;
 }
-
 
 code {
   background: var(--code-bg);
-  font-size: .8em;
-  padding: .05rem .2rem;
+  font-size: 0.8em;
+  padding: 0.05rem 0.2rem;
   border-radius: 4px;
   color: var(--code-cl);
 }
@@ -154,9 +164,77 @@ blockquote {
   background: var(--blockquote-bg);
   border-left: 6px solid var(--accent-color);
   border-radius: 0 6px 6px 0;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 blockquote > p {
-  padding: .3em;
+  padding: 0.3em;
+}
+
+pre[class*="language-"] {
+  font-size: 0.8em;
+  border-radius: 8px;
+  padding: 0.5em 0;
+  counter-reset: lineNumber;
+}
+code[class*="language-"] {
+  padding: 0;
+}
+code .highlight-line:before {
+  position: sticky;
+  left: 0;
+  background: #2d2d2d;
+  -webkit-user-select: none;
+  border-right: 1px solid #404040;
+  color: #858585;
+  content: counter(lineNumber);
+  counter-increment: lineNumber;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  margin-right: 1em;
+  padding-right: 1em;
+  text-align: right;
+  width: 2em;
+}
+
+.prism-copy-button {
+  cursor: pointer;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+
+  border: 1px solid;
+  background-color: #2d2d2d;
+  font-size: 0.8em;
+  border-radius: 4px;
+  padding: 0.2em 0.3em;
+  color: #858585;
+  transition: all 0.2s ease;
+}
+
+.prism-copy-button:hover {
+  color: var(--white);
+}
+
+.prism-copy-button:active {
+  color: var(--main-background-color);
+  background-color: var(--main-font-color);
+}
+
+.code-block-container {
+  position: relative;
+}
+
+
+
+@media (hover:hover) {
+  .code-block-container:hover > pre > .prism-copy-button {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .prism-copy-button {
+    visibility: hidden;
+    opacity: 0;
+  }
 }

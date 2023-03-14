@@ -12,6 +12,7 @@
 }
 
 .nav-menu {
+  height: 59px;
   display: -moz-box;
   display: flex;
   -moz-box-orient: horizontal;
@@ -29,11 +30,11 @@
 }
 
 .nav-menu__item {
+  height: 100%;
   /* color: var(--header-font-color); */
   text-decoration: none;
   font-weight: 500;
-  display: block;
-  padding: 1rem 1.5rem;
+  padding: 0 1.5rem;
   transition: all .3s ease;
   position: relative;
   z-index: 1;
