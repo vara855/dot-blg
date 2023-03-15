@@ -13,6 +13,10 @@
   min-width: 0px;
 }
 
+.post li {
+  line-height: 1.6;
+}
+
 /* TOC */
 .post-toc {
   overflow: hidden;

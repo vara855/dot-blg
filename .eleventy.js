@@ -9,6 +9,23 @@ const renderPermalink = require("./renderPermalink.js");
 const slugify = require("slugify");
 const pluginTOC = require("eleventy-plugin-toc");
 const CleanCSS = require("clean-css");
+const pluginUnfurl = require("eleventy-plugin-unfurl");
+
+const renderUnfurl = ({ title, url, image, description, logo, publisher }) => {
+  const result = `<div class="unfurl">
+  <div class="unfurl__meta">
+  <img class="unfurl__logo" src="${logo.url}" width="${logo.width}" height="${logo.height}" alt="Logo" />
+  <span class="unfurl__publisher">${publisher}</span>
+</div>
+  <h4 class="unfurl__heading">
+      <a href="${url}" target="_blank">${title}</a>
+  </h4>
+  <img class="unfurl__image" src="${image.url}" width="${image.width}" height="${image.height}" alt="Page preview image" />
+  <p class="unfurl__description">${description}</p>
+</div>`;
+  console.log("result :>> ", result);
+  return result;
+};
 
 function imageShortcode(
   src,
@@ -80,12 +97,17 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("image", imageShortcode);
 
+  eleventyConfig.addPlugin(pluginUnfurl, {
+    template: renderUnfurl,
+    duration: "1h",
+  });
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(pluginTOC);
   eleventyConfig.addPlugin(syntaxHighlight, {
     alwaysWrapLineHighlights: true,
     init: ({ Prism }) => {},
   });
+  eleventyConfig.addWatchTarget("./render-unfurl.js");
 
   eleventyConfig.addFilter("ttr", (value) => {
     const words = value.trim().split(/\s+/).length;

@@ -1,6 +1,6 @@
 ---
 title: Server Sent Events для фронтенд разработчиков
-description: Что такое EventSource и как использовать SSE на клиенте правильно.
+description: Что такое EventSource и как использовать SSE на клиенте правильно. Как проставить хэдеры в EventSource. Authorization in EventSource. Best practice for SSE. Server-sent events guide.
 date: 2023-02-12
 tags:
   - network
@@ -44,13 +44,14 @@ layout: layouts/post.njk
 
 ## Как пользоваться?
 
-Я создал небольшой [репозиторий](https://github.com/vara855/guide-sse-blg), в котором есть различные примеры использования SSE на сервере и на клиенте.
+Я создал небольшой репозиторий, в котором есть различные примеры использования SSE на сервере и на клиенте.
+
+{% unfurl "https://github.com/vara855/guide-sse-blg" %}
 
 ```shell
 git clone git@github.com:vara855/guide-sse-blg.git
 ```
 
-<!-- TODO: Fix Link -->
 ### Пример [реализации](https://github.com/vara855/guide-sse-blg/blob/master/nodejs-sse-example/index.js) SSE route
 
 ```js
@@ -73,7 +74,9 @@ async function onDigits(req, res) {
     res.write(createSseEvent(message));
     console.log(`Produced message: "${message}"`);
     if (now - startTime > 10000) {
-      res.write("event: bye\ndata: bye-bye\n\n");
+      res.write(
+        "event: finish\ndata: All of the events were sent. Closing connection.\n\n"
+      );
       console.log(`close response ${req.url}`);
       res.end();
       break;
@@ -82,7 +85,21 @@ async function onDigits(req, res) {
 }
 ```
 
-Как можно заметить, протокол SSE - текстовый. Каждое сообщение - это строка, которая должна содержать данные и должна заканчиваться на `\n\n`. Спецификацию можно почитать здесь.
+Как можно заметить, протокол SSE - текстовый. Каждое сообщение - это строка, которая должна содержать данные (`data`) и должна заканчиваться на `\n\n`. Спецификацию можно почитать [здесь](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events).
+
+Также в сообщении может присутствовать идентификатор `id` и название события `event`.
+
+То есть сообщения могут выглядеть как:
+
+```shell
+# one event
+event: name-of-event
+data: event-data
+
+# another one
+data: event-data-2
+id: event-id
+```
 
 Обязательным также является хедер с типом контента `text/event-stream`.
 
@@ -98,6 +115,8 @@ client.on('message', (event) => {
 })
 client.on('close', () => { /* ... */ });
 client.on('open', () => { /* ... */});
+
+client.addEventListener('eventType', evt => { /* ... */ });
 ```
 
 Больше ничего браузерный `EventSource` не позволяет делать.
@@ -129,6 +148,10 @@ npm run vanilla-demo
 ```shell
 npm run vanilla-polyfill-demo
 ```
+
+## `Fetch` реализация `SSE`
+
+{% unfurl "https://www.npmjs.com/package/@microsoft/fetch-event-source" %}
 
 ## Решаем проблему Auth хедеров
 
