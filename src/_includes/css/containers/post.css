@@ -147,7 +147,8 @@ picture {
   padding-bottom: 2rem;
 }
 
-.post-body pre {
+.post-body pre,
+.post-body .code-block-container {
   max-width: 50vw;
 }
 
@@ -221,7 +222,8 @@ picture {
     /* background: none; */
   }
 
-  .post-body pre {
+  .post-body pre,
+  .post-body .code-block-container {
     max-width: 80vw;
   }
 }
