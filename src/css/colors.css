@@ -1,0 +1,16 @@
+:root {
+  color-scheme: light dark;
+  /* Colors */
+  --dark-gray: #141415;
+  --gray: #333333;
+  --light-gray: #cbcbcd;
+  --smoke-green: #667a73;
+  --smoke-dark-green: #335246;
+  --dark-green: #002918;
+  --cadmium-green: #046231;
+  --darthmius-green: #05773a;
+  --emerald-green: #3bbf78;
+  --grey-white: #efefef;
+  --white: white;
+  --black: #020202;
+}

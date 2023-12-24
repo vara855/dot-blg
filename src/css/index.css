@@ -1,20 +1,22 @@
-@import url("src/_includes/css/components/index.css");
-@import url("src/_includes/css/containers/index.css");
+@import "colors.css";
+@import "_components/_index.css";
+@import "_containers/_index.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--main-font-color);
+  background-color: var(--main-background-color);
+  height: 100%;
+  overflow: auto;
+}
 
 :root {
-  /* Colors */
-  --dark-gray: #141415;
-  --gray: #333333;
-  --light-gray: #cbcbcd;
-  --smoke-green: #667a73;
-  --smoke-dark-green: #335246;
-  --dark-green: #002918;
-  --cadmium-green: #046231;
-  --darthmius-green: #05773a;
-  --emerald-green: #3bbf78;
-  --grey-white: #efefef;
-  --white: white;
-  --black: #020202;
+  color-scheme: light;
 
   /* Light Theme */
   --link-color: var(--darthmius-green);
@@ -47,47 +49,6 @@
   /* Shadows */
   --main-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   --light-box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 12px;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", -apple-system, system-ui, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: var(--main-font-color);
-  background-color: var(--main-background-color);
-  height: 100%;
-  overflow: auto;
-}
-
-.dark {
-  --link-color: var(--emerald-green);
-  --link-visited-color: var(--smoke-dark-green);
-  --header-color: var(--dark-gray);
-  --header-font-color: var(--white);
-  --blockquote-bg: var(--dark-gray);
-  --footer-bg: var(--dark-gray);
-  --main-font-color: var(--grey-white);
-  --main-background-color: var(--gray);
-  --accent-color: var(--cadmium-green);
-  --card-bg: var(--dark-green);
-  --card-sec-cl: var(--emerald-green);
-  --chip-bg: var(--dark-green);
-  --chip-cl: var(--emerald-green);
-  --post-title: var(--emerald-green);
-  --post-sec-title: var(--white);
-  --unfurl-bg: var(--dark-green);
-  --title-content-gradient: linear-gradient(
-    var(--header-color),
-    var(--card-bg),
-    #0f311f,
-    var(--main-background-color)
-  );
-  --post-bg: rgba(31, 31, 31, 0.4);
-
-  --theme-icon: url("/icons/light.svg");
 }
 
 h1 {
@@ -227,9 +188,7 @@ code .highlight-line:before {
   position: relative;
 }
 
-
-
-@media (hover:hover) {
+@media (hover: hover) {
   .code-block-container:hover > pre > .prism-copy-button {
     visibility: visible;
     opacity: 1;
