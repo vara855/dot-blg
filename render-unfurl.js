@@ -1,5 +1,5 @@
 const renderUnfurl = ({ title, url, image, description, logo, publisher }) => {
-  const result = `<div class="unfurl">
+    const result = `<div class="unfurl">
   <h4 class="unfurl__heading">
       <a href="${url}" target="_blank">${title}</a>
   </h4>
@@ -11,7 +11,9 @@ const renderUnfurl = ({ title, url, image, description, logo, publisher }) => {
       <span class="unfurl__publisher">${publisher}</span>
   </div>
 </div>`;
-  console.log("result :>> ", result);
-  return result;
+    // console.log("result :>> ", result);
+    return result;
 };
-module.exports = renderUnfurl;
+module.exports = {
+    renderUnfurl,
+};

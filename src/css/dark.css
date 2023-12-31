@@ -1,0 +1,28 @@
+:root {
+    color-scheme: dark;
+    --link-color: var(--emerald-green);
+    --link-visited-color: var(--smoke-dark-green);
+    --header-color: var(--dark-gray);
+    --header-font-color: var(--white);
+    --blockquote-bg: var(--dark-gray);
+    --footer-bg: var(--dark-gray);
+    --main-font-color: var(--grey-white);
+    --main-background-color: var(--gray);
+    --accent-color: var(--cadmium-green);
+    --card-bg: var(--dark-green);
+    --card-sec-cl: var(--emerald-green);
+    --chip-bg: var(--dark-green);
+    --chip-cl: var(--emerald-green);
+    --post-title: var(--emerald-green);
+    --post-sec-title: var(--white);
+    --unfurl-bg: var(--dark-green);
+    --title-content-gradient: linear-gradient(
+        var(--header-color),
+        var(--card-bg),
+        #0f311f,
+        var(--main-background-color)
+    );
+    --post-bg: rgba(31, 31, 31, 0.4);
+
+    --theme-icon: url('/icons/light.svg');
+}

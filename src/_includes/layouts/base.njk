@@ -11,6 +11,7 @@ title: . blg
     <meta content="{{ title }}" name="description"/>
     <meta name="yandex-verification" content="090b802aee63054c" />
     <meta name="google-site-verification" content="XmLQJO6L6WwraPPXwpHTR2v-yUEAR4ciItca9XMtjYY" />
+    <meta name="color-scheme" content="light dark">
     <link rel="canonical" href="https://dot-blg.onrender.com{{ page.url }}" />
     <title>{{ title }}</title>
     <meta name="description" content="{{ description}}" />
@@ -20,12 +21,8 @@ title: . blg
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.css">
-
-    {% set css %}
-      {% include "css/index.css" %}
-    {% endset %}
-
-    <style>{{ css | cssmin | safe}}</style>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/dark.css" media="(prefers-color-scheme: dark)">
   </head>
   <body>
     <script src="/js/theme-toggler.js" type="module"></script>
