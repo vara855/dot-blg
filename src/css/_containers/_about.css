@@ -1,0 +1,10 @@
+.about {
+    display: grid;
+    place-content: center;
+    grid-template-columns: auto;
+    margin: auto 5%;
+    isolation: isolate;
+}
+.about p {
+    max-width: 75ch;
+}

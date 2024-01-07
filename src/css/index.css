@@ -13,6 +13,7 @@ body {
   background-color: var(--main-background-color);
   height: 100%;
   overflow: auto;
+  hanging-punctuation: first last;
 }
 
 :root {
@@ -55,9 +56,14 @@ h1 {
   font-size: 2.2em;
 }
 
+p {
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
 .wrapper {
   display: grid;
-  min-height: 100vh;
+  min-height: 100svh;
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto 1fr;
   grid-template-areas:
@@ -85,11 +91,17 @@ footer {
 
 .footer-content {
   grid-area: footer-content;
+  font-size: 0.7rem;
+  font-family: monospace;
   text-align: center;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 a {
+  text-decoration: none;
   color: var(--link-color);
+}
+a:hover, a:active {
+  text-decoration: underline;
 }
 
 a:hover {
@@ -123,6 +135,14 @@ img {
   width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
 blockquote {
   background: var(--blockquote-bg);
   border-left: 6px solid var(--accent-color);

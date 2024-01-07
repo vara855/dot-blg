@@ -32,7 +32,9 @@ title: . blg
     <div class="wrapper">
       <header>
         <nav class="nav">
-          <a class="nav-logo" href="{{ '/' | url }}">. blg</a>
+          <div class="nav_logo-container">
+            <a class="nav-logo" href="{{ '/' | url }}">. blg</a>
+          </div>
           <ul class="nav-menu">
             {%- for entry in collections.all | eleventyNavigation %}
               <li class="nav-menu__item{% if entry.url == page.url %} nav-menu__item--active{% endif %}">

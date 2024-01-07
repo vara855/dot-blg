@@ -9,6 +9,11 @@
   background-color: var(--header-color);
   color: var(--header-font-color);
   z-index: 2;
+
+  --transition: all .1s ease
+}
+.nav li {
+  margin: 0;
 }
 
 .nav-menu {
@@ -35,7 +40,7 @@
   text-decoration: none;
   font-weight: 500;
   padding: 0 1.5rem;
-  transition: all .3s ease;
+  transition: var(--transition);
   position: relative;
   z-index: 1;
   display: flex;
@@ -46,7 +51,7 @@
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition);
 }
 
 .nav-menu__button:hover {
@@ -68,10 +73,13 @@
 }
 
 .nav-logo {
-  padding: 1rem 1.5rem;
+  padding-inline: 1.5rem;
   height: 100%;
   text-align: center;
-  display: block;
+  display: grid;
+  height: 59px;
+  transition: var(--transition);
+  place-content: center;
   color: var(--header-font-color);
   font-size: 18px;
   font-weight: 700;
@@ -81,4 +89,5 @@
 
 .nav-logo:hover {
   background-color: var(--accent-color);
+  text-decoration: none;
 }

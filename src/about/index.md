@@ -1,15 +1,17 @@
 ---
-layout: layouts/base.njk
+layout: layouts/about.njk
 title: . blg - About
 eleventyNavigation:
-  key: about
-  order: 0
+    key: about
+    order: 0
 ---
 
-# What is `. blg`?
+# About
 
-That's a personal blog of [@vara855](https://github.com/vara855)
+Это персональный блог [@vara855](https://github.com/vara855).
 
-# Who is `@vara855`
+Я разработчик из России. В основном занимаюсь фронтендом, но также увлечён бекенд разработкой на `Node.js` и `Golang`.
 
-I'm a Software Developer from Russia.
+Иногда меня можно заметить на [Twitch](https://www.twitch.tv/varadotdev), где я стримлю то, как я что-то разрабатываю или учусь чему-то новому.
+
+{% unfurl "https://www.twitch.tv/varadotdev" %}
