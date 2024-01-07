@@ -57,6 +57,7 @@ h1 {
 }
 
 p {
+  max-width: 75ch;
   line-height: 1.6;
   text-wrap: pretty;
 }
@@ -70,6 +71,14 @@ p {
     "header header header"
     "main main main"
     "footer footer footer";
+}
+
+.content {
+  display: grid;
+  place-content: center;
+  grid-template-columns: auto;
+  margin: auto 5%;
+  isolation: isolate;
 }
 
 header {
